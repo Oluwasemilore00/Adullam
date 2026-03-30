@@ -39,36 +39,6 @@ const socialLinks = [
   },
 ];
 
-const offices = [
-  {
-    city: 'London',
-    address: 'One Canada Square, Canary Wharf\nLondon, E14 5AB',
-    phone: '+44 (0)20 7123 4567',
-    email: 'london@nexusmeridian.com',
-    tag: 'Headquarters',
-  },
-  {
-    city: 'New York',
-    address: '9 West 57th Street, 32nd Floor\nNew York, NY 10019',
-    phone: '+1 (212) 555 0190',
-    email: 'newyork@nexusmeridian.com',
-    tag: 'Americas',
-  },
-  {
-    city: 'Dubai',
-    address: 'DIFC, Gate Village Building 7\nDubai, UAE',
-    phone: '+971 4 555 0123',
-    email: 'dubai@nexusmeridian.com',
-    tag: 'Middle East',
-  },
-  {
-    city: 'Singapore',
-    address: '10 Marina Boulevard, #22-01\nSingapore 018983',
-    phone: '+65 6555 0178',
-    email: 'singapore@nexusmeridian.com',
-    tag: 'Asia Pacific',
-  },
-];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', service: '', message: '' });
@@ -190,7 +160,7 @@ export default function Contact() {
             {socialLinks.map((s) => (
               <a
                 key={s.name}
-                href={s.url}
+                href={s.url} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-card"
