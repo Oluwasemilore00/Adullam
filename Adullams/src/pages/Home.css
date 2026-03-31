@@ -308,7 +308,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-}
+} 
 
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 1024px) {
