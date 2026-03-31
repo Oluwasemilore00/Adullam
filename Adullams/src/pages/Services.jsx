@@ -5,7 +5,7 @@ import './About.css';
 
 const services = [
   {
-    id: 'advisory',
+    id: 'advisory', 
     num: '01',
     title: 'Strategic Advisory',
     tagline: 'Board-level counsel for transformational decisions',
