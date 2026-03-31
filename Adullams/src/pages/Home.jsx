@@ -137,7 +137,7 @@ export default function Home() {
                   Learn More <span>→</span>
                 </Link>
               </div>
-            ))}
+            ))} 
           </div>
         </div>
       </section>
