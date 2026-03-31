@@ -135,7 +135,7 @@
 .approach-card__title {
   font-family: var(--serif);
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 500; 
   color: var(--navy);
   margin-bottom: 0.75rem;
 }
