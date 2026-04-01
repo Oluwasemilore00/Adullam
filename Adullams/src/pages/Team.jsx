@@ -94,7 +94,7 @@ export default function Team() {
               </div>
             </div>
             <p className="team-modal__bio">{open.bio}</p>
-            <div className="team-modal__tags">
+            <div className="team-modal__tags"> 
               {open.expertise.map(e => <span key={e} className="team-card__tag">{e}</span>)}
             </div>
             <a
