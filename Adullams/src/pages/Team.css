@@ -189,7 +189,7 @@
 .team-modal__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.4rem; 
   margin-bottom: 1.75rem;
 }
 
