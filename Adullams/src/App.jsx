@@ -14,7 +14,7 @@ function ScrollToTop() {
   return null;
 }
 
-function AppContent() {
+function AppContent() { 
   return (
     <>
       <ScrollToTop />
