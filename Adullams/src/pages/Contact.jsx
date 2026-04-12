@@ -39,17 +39,76 @@ const socialLinks = [
   },
 ];
 
+const offices = [
+  {
+    city: 'London',
+    address: 'One Canada Square, Canary Wharf\nLondon, E14 5AB',
+    phone: '+44 (0)20 7123 4567',
+    email: 'london@nexusmeridian.com',
+    tag: 'Headquarters',
+  },
+  {
+    city: 'New York',
+    address: '9 West 57th Street, 32nd Floor\nNew York, NY 10019',
+    phone: '+1 (212) 555 0190',
+    email: 'newyork@nexusmeridian.com',
+    tag: 'Americas',
+  },
+  {
+    city: 'Dubai',
+    address: 'DIFC, Gate Village Building 7\nDubai, UAE',
+    phone: '+971 4 555 0123',
+    email: 'dubai@nexusmeridian.com',
+    tag: 'Middle East',
+  },
+  {
+    city: 'Singapore',
+    address: '10 Marina Boulevard, #22-01\nSingapore 018983',
+    phone: '+65 6555 0178',
+    email: 'singapore@nexusmeridian.com',
+    tag: 'Asia Pacific',
+  },
+];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState("");
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+
+      setStatus("Sending...");
+
+    try {
+      const response = await fetch("http://localhost:5000/send-message", {
+        method: "POST", // ✅ IMPORTANT
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form), // ✅ send data to Flask
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setSent(true);
+        setForm({ name: "", company: "", email: "", phone: "", service: "", message: "" });
+      } else {
+        setStatus(data.message || "Failed to send message");
+      }
+
+    } catch (error) {
+      console.error(error);
+      setStatus("Something went wrong");
+    }
   };
+
+
+
 
   return (
     <div className="contact">
@@ -123,6 +182,7 @@ export default function Contact() {
                 <button type="submit" className="btn btn-gold contact-submit">
                   Submit Enquiry →
                 </button>
+                {status && <p className="form-status">{status}</p>}
               </form>
             )}
           </div>
@@ -160,7 +220,7 @@ export default function Contact() {
             {socialLinks.map((s) => (
               <a
                 key={s.name}
-                href={s.url} 
+                href={s.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-card"
@@ -179,4 +239,5 @@ export default function Contact() {
       </section>
     </div>
   );
+
 }
