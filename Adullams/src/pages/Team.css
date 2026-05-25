@@ -1,6 +1,6 @@
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5px;
   background: var(--offwhite);
 }
@@ -24,8 +24,8 @@
 }
 
 .team-card__avatar {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 200px;
   border: 2px solid var(--gold);
   overflow: hidden;        /* ← clips image to the box */
   margin-bottom: 1.5rem;
@@ -38,6 +38,7 @@
   object-fit: cover;       /* ← fills box without stretching */
   object-position: top;    /* ← anchors to face, not feet */
   display: block;
+
 }
 
 
@@ -189,7 +190,7 @@
 .team-modal__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem; 
+  gap: 0.4rem;
   margin-bottom: 1.75rem;
 }
 

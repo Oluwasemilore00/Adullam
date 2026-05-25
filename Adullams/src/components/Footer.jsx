@@ -107,7 +107,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="footer__contact-label">Email</span>
-                <a href="mailto:enquiries@nexusmeridian.com" className="footer__link">support@adullamltd.org</a>
+                <a href="mailto:support@adullamltd.org" className="footer__link">support@adullamltd.org</a>
               </li>
             </ul>
           </div>

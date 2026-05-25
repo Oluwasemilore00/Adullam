@@ -2,33 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Team.css';
 import './About.css';
-import ab from '../assets/AB.jpg'
+import ab from '../assets/dad3.jpeg'
+import uncle from '../assets/uncle.jpg'
 
 const team = [
   {
     name: 'Dr Babatunde Adelekan',
     role: 'Founder & CEO',
-    bio: 'Sir Jonathan founded Nexus Meridian Group in 1989 following a distinguished career at Lazard and Goldman Sachs. He has advised on more than 120 major transactions and served as a Non-Executive Director of the Bank of England\'s Financial Policy Committee. He was awarded a knighthood for services to British industry in 2012.',
-    expertise: ['Strategic Advisory', 'Corporate Governance', 'M&A'],
+    bio: 'Dr. Adelekan Adeshina Babatunde is a Public Health Physician, researcher, consultant, and development practitioner with over two decades of experience leading health, gender, and social development initiatives across Nigeria and West Africa. His work spans health systems strengthening, monitoring and evaluation, gender equality, gender-based violence prevention and response, adolescent and youth health, HIV prevention, sexual and reproductive health and rights (SRHR), comprehensive sexuality education, and policy development. He has worked extensively with governments, UN agencies, donor organisations, academic institutions, civil society organisations, and community-based structures to design and implement evidence-driven programmes that improve health outcomes and strengthen institutional systems.',
+    expertise: ['Strategic Advisory', 'Survey & Data Analysis', 'M&E', 'Health Education & Capacity Development'],
     linkedin: 'https://www.linkedin.com/in/',
     initials: 'AB',
     image: ab,
   },
   {
-    name: 'Marcus Heidegger-Wolf',
-    role: 'Managing Director, M&A',
-    bio: 'Marcus leads our Mergers & Acquisitions practice globally. With 28 years of deal experience across Europe, the Americas, and Asia, he has advised on landmark transactions in financial services, industrials, and technology sectors. He is based in Frankfurt.',
-    expertise: ['M&A', 'Cross-Border Transactions', 'Due Diligence'],
+    name: 'Dr Adeyemi Adelekan',
+    role: 'Consultant',
+    bio: 'Adeyemi is an experienced organisational development and learning leader with expertise in workflow optimisation, capacity building, and talent development across Africa, Europe, Asia, and North America. He had led large-scale onboarding for 1,700+ IT engineers, designed leadership and competency programs, and delivered performance management and employability initiatives for multinational organisations across consulting, technology, oil and gas, and nonprofit sectors.',
+    expertise: ['M&E', 'Leadership Training & Strategy', 'Product Evaluation'],
     linkedin: 'https://www.linkedin.com/in/',
-    initials: 'MH',
-  },
-  {
-    name: 'Claire Sutherland-Park',
-    role: 'Managing Director, Strategic Advisory',
-    bio: 'Claire joined NMG from McKinsey & Company, where she was a Senior Partner. She leads our Strategic Advisory practice in Europe and the Middle East, specialising in corporate transformations, portfolio strategy, and the intersection of regulation and competitive strategy.',
-    expertise: ['Corporate Strategy', 'Transformation', 'Regulatory Strategy'],
-    linkedin: 'https://www.linkedin.com/in/',
-    initials: 'CS',
+    initials: 'AA',
+    image: uncle,
   },
 ];
 
@@ -94,20 +88,10 @@ export default function Team() {
               </div>
             </div>
             <p className="team-modal__bio">{open.bio}</p>
-            <div className="team-modal__tags"> 
+            <div className="team-modal__tags">
               {open.expertise.map(e => <span key={e} className="team-card__tag">{e}</span>)}
             </div>
-            <a
-              href={open.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-navy team-modal__linkedin"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-              View LinkedIn Profile
-            </a>
+            
           </div>
         </div>
       )}

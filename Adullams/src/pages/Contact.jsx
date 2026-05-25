@@ -192,7 +192,7 @@ export default function Contact() {
             <div className="contact-info__block">
               <p className="contact-info__label">Global Enquiries</p>
               <a href="tel:+442071234567" className="contact-info__value contact-info__value--link">+44 (0)77 2158 0882</a>
-              <a href="mailto:enquiries@nexusmeridian.com" className="contact-info__value contact-info__value--link">support@adullamltd.org</a>
+              <a href="mailto:support@adullamltd.org" className="contact-info__value contact-info__value--link">support@adullamltd.org</a>
             </div>
             <div className="contact-info__block">
               <p className="contact-info__label">Response Time</p>
