@@ -89,7 +89,7 @@ export default function Footer() {
           <div className="footer__col">
             <h4 className="footer__col-title">Services</h4>
             <ul className="footer__links">
-              {['Strategic Advisory','Leadership Training & Strategy','Product Evaluation','Survey and Analysis','Health Education & Capacity Development','Regulatory Compliance'].map((s) => (
+              {['Strategic Advisory','Leadership Training & Strategy','Product Evaluation','Survey and Analysis','Health Education & Capacity Development'].map((s) => (
                 <li key={s}>
                   <Link to="/services" className="footer__link">{s}</Link>
                 </li>
@@ -103,7 +103,7 @@ export default function Footer() {
             <ul className="footer__contact-list">
               <li>
                 <span className="footer__contact-label">Telephone</span>
-                <a href="tel:+442071234567" className="footer__link">+44 (0)77 2158 0882</a>
+                <a href="tel:+447721580882" className="footer__link">+44 (0)77 2158 0882</a>
               </li>
               <li>
                 <span className="footer__contact-label">Email</span>
@@ -116,7 +116,7 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <div className="container footer__bottom-inner">
-          <p>© {new Date().getFullYear()} Adullam Consulting Limited. All rights reserved.</p>
+          <p>(c) {new Date().getFullYear()} Adullam Consulting Limited. All rights reserved.</p>
           <div className="footer__legal-links">
             <a href="#privacy" className="footer__legal-link">Privacy Policy</a>
             <a href="#terms" className="footer__legal-link">Terms of Use</a>

@@ -9,27 +9,44 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+
+allowed_origins = [
+    origin.strip()
+    for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
+    if origin.strip()
+]
+CORS(app, origins=allowed_origins)
 
 EMAIL_USER = os.getenv("EMAIL_USER")
 EMAIL_PASS = os.getenv("EMAIL_PASS") 
 SMTP_HOST = os.getenv("SMTP_HOST")
-SMTP_PORT = int(os.getenv("SMTP_PORT"))
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+
+
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok"}), 200
 
 @app.route("/send-message", methods=["POST"])
 def send_message():
     data = request.get_json()
+    if not isinstance(data, dict):
+        return jsonify({"message": "Invalid request body"}), 400
 
-    name = data.get("name")
-    email = data.get("email")
-    message = data.get("message")
-    service = data.get("service")
+    name = data.get("name", "").strip()
+    company = data.get("company", "").strip()
+    email = data.get("email", "").strip()
+    phone = data.get("phone", "").strip()
+    message = data.get("message", "").strip()
+    service = data.get("service", "").strip()
 
     if not name or not email or not message:
         return jsonify({"message": "All fields are required"}), 400
 
+    if not all([EMAIL_USER, EMAIL_PASS, SMTP_HOST, SMTP_PORT]):
+        return jsonify({"message": "Email service is not configured"}), 500
+
     try:
-        # Create email
         msg = MIMEMultipart()
         msg["From"] = EMAIL_USER
         msg["To"] = EMAIL_USER
@@ -37,18 +54,19 @@ def send_message():
         msg["Reply-To"] = email
 
         body = f"""
-        Name: {name}
-        Email: {email}
-        Service: {service}
+Name: {name}
+Company / Organisation: {company or "Not provided"}
+Email: {email}
+Telephone: {phone or "Not provided"}
+Service: {service or "Not selected"}
 
-        Message:
-        {message}
-        """
+Message:
+{message}
+"""
 
         msg.attach(MIMEText(body, "plain"))
 
-        # Send email
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as server:
             server.starttls()
             server.login(EMAIL_USER, EMAIL_PASS)
             server.send_message(msg)
@@ -61,4 +79,4 @@ def send_message():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=os.getenv("FLASK_DEBUG") == "1", port=int(os.getenv("PORT", "5000")))

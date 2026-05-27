@@ -1,48 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './About.css';
-
-
 
 const values = [
   {
     title: 'Independence',
-    desc: 'We maintain absolute independence from financial institutions and investment firms, ensuring our advice is entirely objective.',
-    icon: '⟡',
+    desc: 'We maintain independence from conflicting interests, ensuring our advice is objective and client-centred.',
+    icon: '01',
   },
   {
     title: 'Integrity',
-    desc: 'Our reputation is built on decades of unwavering commitment to ethical conduct and transparent counsel.',
-    icon: '◈',
+    desc: 'Our reputation is built on ethical conduct, careful judgement, and transparent counsel.',
+    icon: '02',
   },
   {
     title: 'Excellence',
-    desc: 'We hold ourselves to the highest intellectual and professional standards in every engagement we undertake.',
-    icon: '◉',
+    desc: 'We hold ourselves to high intellectual and professional standards in every engagement we undertake.',
+    icon: '03',
   },
   {
     title: 'Partnership',
-    desc: 'We regard our clients as long-term partners, investing in deep relationships that extend far beyond individual transactions.',
-    icon: '◇',
+    desc: 'We regard our clients as long-term partners and invest in relationships that extend beyond individual projects.',
+    icon: '04',
   },
 ];
 
 export default function About() {
   return (
     <div className="about">
-      {/* ── Page Hero ──────────────────────────── */}
       <section className="page-hero">
         <div className="page-hero__bg" />
         <div className="container page-hero__content">
           <p className="section-label" style={{ color: 'var(--gold)' }}>About Us</p>
           <h1 className="page-hero__title">Fresh Thinking<br /><em>Real Impact</em></h1>
           <p className="page-hero__sub">
-            We are a modern advisory firm powered by insight, technology, and bold ideas—dedicated to building lasting success for the businesses and individuals we serve.
+            We are a modern advisory firm powered by insight, technology, and
+            bold ideas, dedicated to building lasting success for the businesses
+            and individuals we serve.
           </p>
         </div>
       </section>
 
-      {/* ── Mission ────────────────────────────── */}
       <section className="about-mission section-pad">
         <div className="container about-mission__inner">
           <div className="about-mission__text">
@@ -50,22 +47,21 @@ export default function About() {
             <h2 className="section-title">Delivering clarity<br />when it matters most</h2>
             <div className="divider" />
             <p className="about-body">
-              Adullam Consulting Limited exists to help 
-              organisations make better decisions. We combine rigorous analysis,
-              global perspective, and deep sector expertise to deliver insight that
-              is genuinely differentiated, not merely a rehash of conventional wisdom.
+              Adullam Consulting Limited exists to help organisations make
+              better decisions. We combine rigorous analysis, global perspective,
+              and deep sector expertise to deliver insight that is genuinely
+              differentiated.
             </p>
             <p className="about-body" style={{ marginTop: '1rem' }}>
-              Whether advising a sovereign wealth fund on a strategic repositioning,
-              a multinational on a transformative acquisition, or a government on
-              critical health based policy, we bring the same commitment to
-              intellectual rigour and client-first counsel.
+              Whether advising organisations, development partners, or public
+              sector leaders, we bring the same commitment to intellectual
+              rigour and client-first counsel.
             </p>
           </div>
           <div className="about-mission__stat-block">
             <div className="about-stat">
               <span className="about-stat__num">20+</span>
-              <span className="about-stat__label">Professionals Globally</span>
+              <span className="about-stat__label">Years of Experience</span>
             </div>
             <div className="about-stat">
               <span className="about-stat__num">2</span>
@@ -75,7 +71,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Values ─────────────────────────────── */}
       <section className="about-values section-pad" style={{ background: 'var(--navy)' }}>
         <div className="container">
           <div style={{ textAlign: 'center' }}>
@@ -94,10 +89,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      
-
-      
     </div>
   );
 }

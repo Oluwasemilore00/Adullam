@@ -9,7 +9,7 @@ const services = [
     num: '01',
     title: 'Strategic Advisory',
     tagline: 'Board-level counsel for transformational decisions',
-    desc: 'We provide senior-level strategic advisory services to boards, CEOs, and leadership teams navigating significant transitions — whether a market repositioning, ownership change, response to competitive disruption, or long-range strategic planning.',
+    desc: 'We provide senior-level strategic advisory services to boards, CEOs, and leadership teams navigating significant transitions, from market repositioning to long-range strategic planning.',
     features: [
       'Corporate strategy & competitive positioning',
       'Board advisory & governance review',
@@ -17,14 +17,14 @@ const services = [
       'Market entry & growth strategy',
       'Portfolio rationalisation',
     ],
-    icon: '◈',
+    icon: '01',
   },
   {
-    id: 'ma',
+    id: 'leadership',
     num: '02',
     title: 'Leadership Training & Strategy',
-    tagline: 'End-to-End Leadership & Strategy Excellence',
-    desc: 'We partner with ambitious organisations to strengthen leadership capability and shape strategies that drive sustainable growth. Combining analytical rigour with practical execution, we support leaders in navigating complexity, unlocking performance, and positioning their businesses for long-term success.',
+    tagline: 'End-to-end leadership and strategy excellence',
+    desc: 'We partner with ambitious organisations to strengthen leadership capability and shape strategies that drive sustainable growth.',
     features: [
       'Executive & founder leadership development',
       'Corporate and growth strategy formulation',
@@ -32,14 +32,14 @@ const services = [
       'Market entry and expansion strategy',
       'Organisational alignment & performance optimisation',
     ],
-    icon: '◉',
+    icon: '02',
   },
   {
-    id: 'capital',
+    id: 'product',
     num: '03',
     title: 'Product Evaluation',
-    tagline: 'Optimising Product Value & Performance',
-    desc: 'We support organisations in assessing, refining, and positioning their products to maximise market impact and long-term value. From concept validation through to performance optimisation, we combine analytical rigour with market insight to ensure products are commercially viable, competitive, and scalable.',
+    tagline: 'Optimising product value and performance',
+    desc: 'We help organisations assess, refine, and position products to maximise market impact and long-term value.',
     features: [
       'Product concept validation & feasibility analysis',
       'Market research & competitive benchmarking',
@@ -47,14 +47,14 @@ const services = [
       'Product performance analysis & lifecycle management',
       'Go-to-market strategy & product positioning',
     ],
-    icon: '◇',
+    icon: '03',
   },
   {
-    id: 'risk',
+    id: 'analysis',
     num: '04',
     title: 'Survey and Analysis',
-    tagline: 'Maximising Insight Across Every Dimension',
-    desc: 'In an increasingly complex and data-driven environment, we help organisations generate deep insights through rigorous analysis and structured inquiry. Our approach enables clients to understand underlying trends, evaluate performance, and make informed decisions with clarity and confidence.',
+    tagline: 'Maximising insight across every dimension',
+    desc: 'We help organisations generate deep insights through rigorous analysis, structured inquiry, and clear reporting.',
     features: [
       'Survey design & data collection strategy',
       'Market research & stakeholder analysis',
@@ -62,47 +62,52 @@ const services = [
       'Performance evaluation & benchmarking',
       'Insight generation & strategic reporting',
     ],
-    icon: '⟡',
+    icon: '04',
   },
   {
-    id: 'digital',
+    id: 'health',
     num: '05',
     title: 'Health Education & Capacity Development',
-    tagline: 'Engineering the Future of Health Education & Capacity Development',
-    desc: 'As healthcare systems evolve in an increasingly technology-driven world, we empower organisations to build future-ready capabilities through advanced education, skills development, and knowledge transfer. Our approach integrates innovation, data, and human capital to strengthen healthcare delivery, enhance workforce readiness, and drive sustainable impact at scale.',
+    tagline: 'Building stronger systems and future-ready teams',
+    desc: 'We empower organisations to build capability through education, skills development, and knowledge transfer.',
     features: [
       'Curriculum design & health education strategy',
       'Workforce training & capacity building programmes',
       'Public health awareness & community engagement',
       'Monitoring, evaluation & impact assessment',
     ],
-    icon: '◈',
+    icon: '05',
   },
+];
+
+const serviceStats = [
+  'Strategy',
+  'Leadership',
+  'Research',
+  'Evaluation',
+  'Capacity',
 ];
 
 export default function Services() {
   const [active, setActive] = useState(services[0].id);
-  const activeService = services.find(s => s.id === active);
+  const activeService = services.find((s) => s.id === active);
 
   return (
     <div className="services">
-      {/* Hero */}
       <section className="page-hero">
         <div className="page-hero__bg" />
         <div className="container page-hero__content">
           <p className="section-label" style={{ color: 'var(--gold)' }}>What We Do</p>
           <h1 className="page-hero__title">Our Services</h1>
           <p className="page-hero__sub">
-            Six integrated practice areas, each led by specialists with decades of
-            real-world advisory experience across the world's most complex markets.
+            Five integrated practice areas led by specialists with practical
+            advisory, development, research, and implementation experience.
           </p>
         </div>
       </section>
 
-      {/* Interactive Services Panel */}
       <section className="services-panel section-pad">
         <div className="container services-panel__inner">
-          {/* Tab List */}
           <nav className="services-nav">
             {services.map((s) => (
               <button
@@ -116,7 +121,6 @@ export default function Services() {
             ))}
           </nav>
 
-          {/* Detail Panel */}
           <div className="services-detail" key={active}>
             <div className="services-detail__top">
               <span className="services-detail__icon">{activeService.icon}</span>
@@ -130,7 +134,7 @@ export default function Services() {
             <ul className="services-detail__features">
               {activeService.features.map((f) => (
                 <li key={f}>
-                  <span className="services-detail__check">—</span>
+                  <span className="services-detail__check">-</span>
                   {f}
                 </li>
               ))}
@@ -140,9 +144,13 @@ export default function Services() {
             </Link>
           </div>
         </div>
+        <div className="container services-snapshot" aria-label="Service focus areas">
+          {serviceStats.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
       </section>
 
-      {/* Approach */}
       <section className="services-approach section-pad" style={{ background: 'var(--cream)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p className="section-label">How We Work</p>
@@ -150,10 +158,10 @@ export default function Services() {
           <div className="divider centered" />
           <div className="approach-grid">
             {[
-              { num: '1', title: 'Discovery', desc: 'We invest deeply in understanding your organisation, industry context, and the specific challenge at hand before forming any view.' },
-              { num: '2', title: 'Analysis', desc: 'Our teams apply proprietary frameworks and draw on global databases, networks, and primary research to build a rigorous evidence base.' },
-              { num: '3', title: 'Counsel', desc: 'We deliver clear, actionable recommendations — not hedged reports. You receive our best judgement, delivered with conviction.' },
-              { num: '4', title: 'Implementation', desc: 'We remain with clients through execution, monitoring progress and adapting recommendations as circumstances evolve.' },
+              { num: '1', title: 'Discovery', desc: 'We invest deeply in understanding your organisation, context, and specific challenge.' },
+              { num: '2', title: 'Analysis', desc: 'We combine structured research, sector knowledge, and clear evidence to form practical recommendations.' },
+              { num: '3', title: 'Counsel', desc: 'We deliver direct, actionable guidance that helps leaders move with clarity and confidence.' },
+              { num: '4', title: 'Implementation', desc: 'We remain available through execution, monitoring progress and adapting recommendations as circumstances evolve.' },
             ].map((step) => (
               <div key={step.num} className="approach-card">
                 <span className="approach-card__num">{step.num}</span>
@@ -165,7 +173,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section-pad" style={{ background: 'var(--navy)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <p className="section-label" style={{ color: 'var(--gold)' }}>Next Step</p>

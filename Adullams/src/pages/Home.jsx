@@ -2,35 +2,38 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-
-
 const services = [
   {
     num: '01',
     title: 'Strategic Advisory',
-    desc: 'Bespoke counsel for boards and C-suites navigating complex, high-stakes decisions in volatile global markets.',
-    icon: '◈',
+    desc: 'Bespoke counsel for boards and leadership teams navigating complex, high-stakes decisions.',
+    icon: '01',
   },
   {
     num: '02',
     title: 'Leadership Training & Strategy',
-    desc: 'End-to-end leadership and strategic support from vision setting and capability development through to execution and sustained performance.',
-    icon: '◉',
+    desc: 'Leadership and strategic support from vision setting through to execution and sustained performance.',
+    icon: '02',
   },
   {
     num: '03',
     title: 'Product Evaluation',
-    desc: 'Access to deep market intelligence and analytical insight to evaluate product viability, optimise performance, and maximise commercial success.',
-    icon: '◇',
+    desc: 'Market intelligence and analytical insight to evaluate product viability and improve commercial success.',
+    icon: '03',
   },
   {
     num: '04',
     title: 'Health Education & Capacity Development',
-    desc: 'Proprietary methodologies to diagnose capability needs, build resilient health systems, and elevate workforce performance across regions and sectors.',
-    icon: '◈',
+    desc: 'Capability development for stronger health systems, resilient teams, and measurable institutional impact.',
+    icon: '04',
   },
 ];
 
+const proofPoints = [
+  { value: '20+', label: 'Years of applied experience' },
+  { value: '5', label: 'Core advisory capabilities' },
+  { value: '2', label: 'Countries of operation' },
+];
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -43,7 +46,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      {/* ── Hero ─────────────────────────────────────────── */}
       <section className="hero" ref={heroRef}>
         <div className="hero__bg">
           <div className="hero__gradient" />
@@ -52,20 +54,27 @@ export default function Home() {
         <div className="container hero__content">
           <div className="hero__eyebrow">
             <span className="hero__eyebrow-line" />
-            <span>Strategic Advisory · Global Consulting</span>
+            <span>Strategic Advisory - Global Consulting</span>
           </div>
           <h1 className="hero__title">
             Clarity in<br />
             <em>Complexity.</em>
           </h1>
           <p className="hero__subtitle">
-            Adullam Consulting Limited  partners with the world's most ambitious
-            organisations to navigate transformative challenges and unlock
-            enduring value.
+            Adullam Consulting Limited partners with ambitious organisations to
+            navigate transformative challenges and unlock enduring value.
           </p>
           <div className="hero__actions">
             <Link to="/services" className="btn btn-gold">Explore Our Services</Link>
             <Link to="/contact" className="btn btn-outline">Speak to an Adviser</Link>
+          </div>
+          <div className="hero__proof" aria-label="Adullam Consulting highlights">
+            {proofPoints.map((item) => (
+              <div className="hero__proof-item" key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
           </div>
         </div>
         <div className="hero__scroll-hint">
@@ -74,9 +83,6 @@ export default function Home() {
         </div>
       </section>
 
-      
-
-      {/* ── About Strip ──────────────────────────────────── */}
       <section className="intro section-pad">
         <div className="container intro__inner">
           <div className="intro__text">
@@ -84,18 +90,22 @@ export default function Home() {
             <h2 className="section-title">Building trusted<br />partnerships for the future</h2>
             <div className="divider" />
             <p className="intro__body">
-             Founded to redefine the standard of strategic advisory, Adullam Consulting LTD is an independent firm serving corporations, institutions, and public sector organisations. We bring together rigorous analysis, global perspective, and disciplined execution to address our clients’ most consequential challenges.
-            <p className="intro__body" style={{ marginTop: '1rem' }}>
-              Our independence is fundamental to our approach. Free from conflicts and unconstrained by legacy interests, we provide objective, unvarnished counsel, aligned solely with the long-term success of those we advise.
+              Founded to redefine the standard of strategic advisory, Adullam
+              Consulting Limited is an independent firm serving corporations,
+              institutions, and public sector organisations.
             </p>
+            <p className="intro__body" style={{ marginTop: '1rem' }}>
+              We bring together rigorous analysis, global perspective, and
+              disciplined execution to address our clients' most consequential
+              challenges.
             </p>
             <p className="intro__body" style={{ marginTop: '1rem' }}>
-              Our independence is our greatest strength free from conflicts of
-              interest, we provide objective counsel aligned entirely to the goals
-              of our clients.
+              Our independence is fundamental to our approach. Free from
+              conflicts of interest, we provide objective counsel aligned with
+              the long-term success of those we advise.
             </p>
             <Link to="/about" className="btn btn-navy" style={{ marginTop: '2rem' }}>
-              Our Story →
+              Our Story -&gt;
             </Link>
           </div>
           <div className="intro__visual">
@@ -109,11 +119,14 @@ export default function Home() {
                 </footer>
               </blockquote>
             </div>
+            <div className="intro__note">
+              <span>Independent counsel</span>
+              <strong>Built for consequential decisions</strong>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Services ─────────────────────────────────────── */}
       <section className="home-services section-pad" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div className="home-services__header">
@@ -134,7 +147,7 @@ export default function Home() {
                 <h3 className="service-card__title">{s.title}</h3>
                 <p className="service-card__desc">{s.desc}</p>
                 <Link to="/services" className="service-card__link">
-                  Learn More <span>→</span>
+                  Learn More <span>-&gt;</span>
                 </Link>
               </div>
             ))}
@@ -142,9 +155,6 @@ export default function Home() {
         </div>
       </section>
 
-      
-
-      {/* ── CTA ──────────────────────────────────────────── */}
       <section className="home-cta">
         <div className="container home-cta__inner">
           <div>
