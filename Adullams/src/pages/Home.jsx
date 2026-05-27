@@ -35,6 +35,36 @@ const proofPoints = [
   { value: '2', label: 'Countries of operation' },
 ];
 
+const advantages = [
+  {
+    num: '01',
+    title: 'Independent counsel',
+    desc: 'Objective advice shaped around the client mandate, not legacy interests or one-size-fits-all frameworks.',
+  },
+  {
+    num: '02',
+    title: 'Evidence-led decisions',
+    desc: 'Research, field insight, and structured analysis are used to turn complex questions into clear choices.',
+  },
+  {
+    num: '03',
+    title: 'Leadership capability',
+    desc: 'Strategy is paired with training and organisational development so teams can sustain momentum after the engagement.',
+  },
+  {
+    num: '04',
+    title: 'Implementation focus',
+    desc: 'Recommendations are built to be acted on, monitored, and adapted as conditions change.',
+  },
+];
+
+const impactSteps = [
+  'Clarify the mandate',
+  'Build the evidence',
+  'Shape the strategy',
+  'Support execution',
+];
+
 export default function Home() {
   const heroRef = useRef(null);
 
@@ -83,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="intro section-pad">
+      <section className="intro section-pad reveal">
         <div className="container intro__inner">
           <div className="intro__text">
             <p className="section-label">Who We Are</p>
@@ -127,7 +157,26 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-services section-pad" style={{ background: 'var(--cream)' }}>
+      <section className="why-adullam section-pad">
+        <div className="container">
+          <div className="why-adullam__header reveal">
+            <p className="section-label">Why Adullam</p>
+            <h2 className="section-title">Practical insight for<br />high-stakes decisions</h2>
+            <div className="divider" />
+          </div>
+          <div className="why-adullam__grid">
+            {advantages.map((item, index) => (
+              <article className={`why-card reveal reveal-delay-${Math.min(index, 3)}`} key={item.title}>
+                <span className="why-card__num">{item.num}</span>
+                <h3 className="why-card__title">{item.title}</h3>
+                <p className="why-card__desc">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-services section-pad reveal" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div className="home-services__header">
             <div>
@@ -155,7 +204,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-cta">
+      <section className="impact-path section-pad">
+        <div className="container impact-path__inner">
+          <div className="impact-path__copy reveal">
+            <p className="section-label">How Value Is Created</p>
+            <h2 className="section-title light">From uncertainty<br />to confident action</h2>
+            <p>
+              Every engagement is shaped around a clear path from diagnosis to
+              decision. The result is advice that leaders can understand,
+              defend, and implement.
+            </p>
+          </div>
+          <div className="impact-path__steps">
+            {impactSteps.map((step, index) => (
+              <div className={`impact-step reveal reveal-delay-${Math.min(index, 3)}`} key={step}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{step}</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-cta reveal">
         <div className="container home-cta__inner">
           <div>
             <p className="section-label" style={{ color: 'var(--gold-light)' }}>Get Started</p>
