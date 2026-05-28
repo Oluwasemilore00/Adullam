@@ -1,1 +1,3 @@
 qa-screenshots/
+__pycache__/
+*.pyc
