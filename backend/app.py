@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
+import requests
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -20,6 +21,8 @@ CORS(app, origins=allowed_origins)
 EMAIL_USER = os.getenv("EMAIL_USER")
 EMAIL_PASS = (os.getenv("EMAIL_PASS") or "").replace(" ", "")
 EMAIL_TO = os.getenv("EMAIL_TO", EMAIL_USER)
+EMAIL_FROM = os.getenv("EMAIL_FROM", EMAIL_USER)
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 SMTP_HOST = os.getenv("SMTP_HOST")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 
@@ -45,17 +48,7 @@ def send_message():
     if not name or not email or not message:
         return jsonify({"message": "All fields are required"}), 400
 
-    if not all([EMAIL_USER, EMAIL_PASS, EMAIL_TO, SMTP_HOST, SMTP_PORT]):
-        return jsonify({"message": "Email service is not configured"}), 500
-
-    try:
-        msg = MIMEMultipart()
-        msg["From"] = EMAIL_USER
-        msg["To"] = EMAIL_TO
-        msg["Subject"] = f"New Contact Form Message from {name}"
-        msg["Reply-To"] = email
-
-        body = f"""
+    body = f"""
 Name: {name}
 Company / Organisation: {company or "Not provided"}
 Email: {email}
@@ -65,6 +58,46 @@ Service: {service or "Not selected"}
 Message:
 {message}
 """
+
+    if RESEND_API_KEY:
+        if not all([EMAIL_FROM, EMAIL_TO]):
+            return jsonify({"message": "Email service is not configured"}), 500
+
+        try:
+            response = requests.post(
+                "https://api.resend.com/emails",
+                headers={
+                    "Authorization": f"Bearer {RESEND_API_KEY}",
+                    "Content-Type": "application/json",
+                    "User-Agent": "adullam-contact-form/1.0",
+                },
+                json={
+                    "from": EMAIL_FROM,
+                    "to": [EMAIL_TO],
+                    "subject": f"New Contact Form Message from {name}",
+                    "text": body,
+                    "reply_to": email,
+                },
+                timeout=15,
+            )
+            response.raise_for_status()
+            return jsonify({"message": "Message sent successfully!"}), 200
+
+        except Exception as exc:
+            print("Resend error:", exc)
+            if "response" in locals():
+                print("Resend response:", response.status_code, response.text)
+            return jsonify({"message": "Failed to send message"}), 500
+
+    if not all([EMAIL_USER, EMAIL_PASS, EMAIL_TO, SMTP_HOST, SMTP_PORT]):
+        return jsonify({"message": "Email service is not configured"}), 500
+
+    try:
+        msg = MIMEMultipart()
+        msg["From"] = EMAIL_USER
+        msg["To"] = EMAIL_TO
+        msg["Subject"] = f"New Contact Form Message from {name}"
+        msg["Reply-To"] = email
 
         msg.attach(MIMEText(body, "plain"))
 
@@ -76,7 +109,7 @@ Message:
         return jsonify({"message": "Message sent successfully!"}), 200
 
     except Exception as exc:
-        print("Error:", exc)
+        print("SMTP error:", exc)
         return jsonify({"message": "Failed to send message"}), 500
 
 
