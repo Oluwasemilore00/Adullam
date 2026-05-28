@@ -18,7 +18,8 @@ allowed_origins = [
 CORS(app, origins=allowed_origins)
 
 EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
+EMAIL_PASS = (os.getenv("EMAIL_PASS") or "").replace(" ", "")
+EMAIL_TO = os.getenv("EMAIL_TO", EMAIL_USER)
 SMTP_HOST = os.getenv("SMTP_HOST")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
 
@@ -44,13 +45,13 @@ def send_message():
     if not name or not email or not message:
         return jsonify({"message": "All fields are required"}), 400
 
-    if not all([EMAIL_USER, EMAIL_PASS, SMTP_HOST, SMTP_PORT]):
+    if not all([EMAIL_USER, EMAIL_PASS, EMAIL_TO, SMTP_HOST, SMTP_PORT]):
         return jsonify({"message": "Email service is not configured"}), 500
 
     try:
         msg = MIMEMultipart()
         msg["From"] = EMAIL_USER
-        msg["To"] = EMAIL_USER
+        msg["To"] = EMAIL_TO
         msg["Subject"] = f"New Contact Form Message from {name}"
         msg["Reply-To"] = email
 
