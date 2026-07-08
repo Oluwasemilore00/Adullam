@@ -8,18 +8,20 @@ const team = [
   {
     name: 'Dr Babatunde Adelekan',
     role: 'Founder & CEO',
-    summary: 'Public health, research, policy, and development leadership.',
-    bio: 'Dr. Adelekan Adeshina Babatunde is a Public Health Physician, researcher, consultant, and development practitioner with over two decades of experience leading health, gender, and social development initiatives across Nigeria and West Africa. His work spans health systems strengthening, monitoring and evaluation, gender equality, gender-based violence prevention and response, adolescent and youth health, HIV prevention, sexual and reproductive health and rights, comprehensive sexuality education, and policy development.',
-    expertise: ['Strategic Advisory', 'Survey & Data Analysis', 'M&E', 'Health Education & Capacity Development'],
+    summary: 'Public health, development strategy, research, and programme leadership.',
+    bio: 'Dr Babatunde Adelekan is a public health physician, researcher, consultant, and development practitioner with more than two decades of experience supporting governments, NGOs, donors, faith-based organisations, universities, and development partners. His work focuses on health systems strengthening, programme design, monitoring and evaluation, research, gender equality, safeguarding, HIV prevention and response, sexual and reproductive health and rights, adolescent and youth development, and policy advisory. He brings a practical, evidence-led approach to helping institutions design, implement, evaluate, and strengthen high-impact programmes.',
+    expertise: ['Public Health and Development', 'Research and Evaluation', 'Programme Design', 'Strategic and Programme Advisory'],
+    profileUrl: 'https://www.linkedin.com/in/babatunde-adelekan/',
     initials: 'AB',
     image: ab,
   },
   {
     name: 'Dr Adeyemi Adelekan',
-    role: 'Consultant',
-    summary: 'Organisational development, learning, and capacity building.',
-    bio: 'Adeyemi is an experienced organisational development and learning leader with expertise in workflow optimisation, capacity building, and talent development across Africa, Europe, Asia, and North America. He has led large-scale onboarding for 1,700+ IT engineers, designed leadership and competency programs, and delivered performance management and employability initiatives for multinational organisations across consulting, technology, oil and gas, and nonprofit sectors.',
-    expertise: ['M&E', 'Leadership Training & Strategy', 'Product Evaluation'],
+    role: 'Chief Operating Officer',
+    summary: 'Organisational transformation, learning, workforce capability, and operational excellence.',
+    bio: 'Dr Adeyemi Adelekan is an organisational development, learning, and transformation leader with experience strengthening people, systems, workflows, and performance across corporate and development-sector environments. His work spans organisational diagnostics, restructuring, process improvement, leadership development, workforce capability assessment, competency frameworks, talent development, employability programmes, digital learning, and performance improvement. He has supported large-scale workforce and learning initiatives across Africa, Europe, Asia, and North America, bringing strong operational discipline to Adullam Consulting Limited as Chief Operating Officer.',
+    expertise: ['Organisational Development', 'Leadership Development', 'Workforce Capability', 'Operational Excellence'],
+    profileUrl: 'https://www.linkedin.com/in/adeyemi-adelekan-89595741/',
     initials: 'AA',
     image: uncle,
   },
@@ -88,6 +90,7 @@ export default function Team() {
             <div className="team-modal__tags">
               {open.expertise.map((e) => <span key={e} className="team-card__tag">{e}</span>)}
             </div>
+            <a href={open.profileUrl} className="team-card__btn" target="_blank" rel="noopener noreferrer">View LinkedIn Profile -&gt;</a>
           </div>
         </div>
       )}

@@ -120,11 +120,14 @@ export default function Contact() {
                   <label>Service of Interest</label>
                   <select name="service" value={form.service} onChange={handleChange}>
                     <option value="">Please select...</option>
-                    <option>Strategic Advisory</option>
-                    <option>Leadership Training & Strategy</option>
-                    <option>Product Evaluation</option>
-                    <option>Survey and Analysis</option>
-                    <option>Health Education & Capacity Development</option>
+                    <option>Organisational Development and Transformation</option>
+                    <option>Learning, Leadership and Workforce Development</option>
+                    <option>Performance Management and Business Excellence</option>
+                    <option>Public Health and Development Consulting</option>
+                    <option>Research, Monitoring, Evaluation and Learning</option>
+                    <option>Strategy, Programme Design and Resource Mobilisation</option>
+                    <option>Employability and Workforce Readiness Solutions</option>
+                    <option>Digital Learning and Knowledge Solutions</option>
                     <option>Other</option>
                   </select>
                 </div>
@@ -155,9 +158,9 @@ export default function Contact() {
               <p className="contact-info__value">We aim to respond to all enquiries within one business day.</p>
             </div>
             <div className="contact-info__quick">
-              <span>Strategy</span>
+              <span>Transformation</span>
               <span>Research</span>
-              <span>Training</span>
+              <span>Learning</span>
               <span>Health Systems</span>
             </div>
           </aside>

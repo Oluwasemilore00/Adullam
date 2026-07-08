@@ -33,9 +33,10 @@ export default function About() {
           <p className="section-label" style={{ color: 'var(--gold)' }}>About Us</p>
           <h1 className="page-hero__title">Fresh Thinking<br /><em>Real Impact</em></h1>
           <p className="page-hero__sub">
-            We are a modern advisory firm powered by insight, technology, and
-            bold ideas, dedicated to building lasting success for the businesses
-            and individuals we serve.
+            We bring together senior expertise in organisational development,
+            workforce capability, leadership development, performance
+            management, public health, international development, research,
+            monitoring, and evaluation.
           </p>
         </div>
       </section>
@@ -47,15 +48,14 @@ export default function About() {
             <h2 className="section-title">Delivering clarity<br />when it matters most</h2>
             <div className="divider" />
             <p className="about-body">
-              Adullam Consulting Limited exists to help organisations make
-              better decisions. We combine rigorous analysis, global perspective,
-              and deep sector expertise to deliver insight that is genuinely
-              differentiated.
+              Adullam Consulting Limited supports organisations that want to
+              improve how they work, strengthen their people, design better
+              programmes, measure results, and achieve sustainable growth.
             </p>
             <p className="about-body" style={{ marginTop: '1rem' }}>
-              Whether advising organisations, development partners, or public
-              sector leaders, we bring the same commitment to intellectual
-              rigour and client-first counsel.
+              We help governments, NGOs, faith-based organizations, donors,
+              universities, and development partners design, implement,
+              evaluate, and strengthen high-impact programmes.
             </p>
           </div>
           <div className="about-mission__stat-block">
@@ -65,7 +65,7 @@ export default function About() {
             </div>
             <div className="about-stat">
               <span className="about-stat__num">2</span>
-              <span className="about-stat__label">Countries of Operation</span>
+              <span className="about-stat__label">Continents of Operation</span>
             </div>
           </div>
         </div>

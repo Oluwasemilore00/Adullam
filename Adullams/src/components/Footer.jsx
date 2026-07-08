@@ -89,7 +89,13 @@ export default function Footer() {
           <div className="footer__col">
             <h4 className="footer__col-title">Services</h4>
             <ul className="footer__links">
-              {['Strategic Advisory','Leadership Training & Strategy','Product Evaluation','Survey and Analysis','Health Education & Capacity Development'].map((s) => (
+              {[
+                'Organisational Development',
+                'Learning and Leadership',
+                'Public Health Consulting',
+                'Research and Evaluation',
+                'Programme Design',
+              ].map((s) => (
                 <li key={s}>
                   <Link to="/services" className="footer__link">{s}</Link>
                 </li>

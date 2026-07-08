@@ -5,34 +5,34 @@ import './Home.css';
 const services = [
   {
     num: '01',
-    title: 'Strategic Advisory',
-    desc: 'Bespoke counsel for boards and leadership teams navigating complex, high-stakes decisions.',
+    title: 'Organisational Development and Transformation',
+    desc: 'Stronger structures, governance systems, workflows, operations, teams, and culture.',
     icon: '01',
   },
   {
     num: '02',
-    title: 'Leadership Training & Strategy',
-    desc: 'Leadership and strategic support from vision setting through to execution and sustained performance.',
+    title: 'Learning, Leadership and Workforce Development',
+    desc: 'Practical learning solutions that strengthen individual, team, and organisational performance.',
     icon: '02',
   },
   {
     num: '03',
-    title: 'Product Evaluation',
-    desc: 'Market intelligence and analytical insight to evaluate product viability and improve commercial success.',
+    title: 'Public Health and Development Consulting',
+    desc: 'Technical support for high-impact health, social development, and institutional programmes.',
     icon: '03',
   },
   {
     num: '04',
-    title: 'Health Education & Capacity Development',
-    desc: 'Capability development for stronger health systems, resilient teams, and measurable institutional impact.',
+    title: 'Research, Monitoring, Evaluation and Learning',
+    desc: 'Evidence, insight, and measurement systems that improve decisions, accountability, and results.',
     icon: '04',
   },
 ];
 
 const proofPoints = [
   { value: '20+', label: 'Years of applied experience' },
-  { value: '5', label: 'Core advisory capabilities' },
-  { value: '2', label: 'Countries of operation' },
+  { value: '8', label: 'Integrated service areas' },
+  { value: '2', label: 'Continents of operation' },
 ];
 
 const advantages = [
@@ -84,15 +84,16 @@ export default function Home() {
         <div className="container hero__content">
           <div className="hero__eyebrow">
             <span className="hero__eyebrow-line" />
-            <span>Strategic Advisory - Global Consulting</span>
+            <span>Organisational Transformation - Development Consulting</span>
           </div>
           <h1 className="hero__title">
             Clarity in<br />
             <em>Complexity.</em>
           </h1>
           <p className="hero__subtitle">
-            Adullam Consulting Limited partners with ambitious organisations to
-            navigate transformative challenges and unlock enduring value.
+            We help governments, NGOs, faith-based organizations, donors,
+            universities, and development partners design, implement, evaluate,
+            and strengthen high-impact programmes.
           </p>
           <div className="hero__actions">
             <Link to="/services" className="btn btn-gold">Explore Our Services</Link>
@@ -120,19 +121,20 @@ export default function Home() {
             <h2 className="section-title">Building trusted<br />partnerships for the future</h2>
             <div className="divider" />
             <p className="intro__body">
-              Founded to redefine the standard of strategic advisory, Adullam
-              Consulting Limited is an independent firm serving corporations,
-              institutions, and public sector organisations.
+              Adullam Consulting Limited is a strategy, people, performance,
+              public health, and development consulting firm supporting
+              organisations to grow, improve systems, build workforce capacity,
+              and deliver measurable results.
             </p>
             <p className="intro__body" style={{ marginTop: '1rem' }}>
-              We bring together rigorous analysis, global perspective, and
-              disciplined execution to address our clients' most consequential
-              challenges.
+              We work with businesses, NGOs, faith-based organisations, public
+              institutions, health organisations, development partners, and
+              social impact organisations across Africa, Europe, and
+              international markets.
             </p>
             <p className="intro__body" style={{ marginTop: '1rem' }}>
-              Our independence is fundamental to our approach. Free from
-              conflicts of interest, we provide objective counsel aligned with
-              the long-term success of those we advise.
+              Our strength is simple: we help organisations become clearer,
+              stronger, more efficient, and more impactful.
             </p>
             <Link to="/about" className="btn btn-navy" style={{ marginTop: '2rem' }}>
               Our Story -&gt;
